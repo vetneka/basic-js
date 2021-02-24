@@ -9,18 +9,14 @@ module.exports = function repeater(str, options) {
     additionSeparator = '|',
   } = options;
 
-  const resultStrParts = [];
-  const resultAdditionStrParts = [];
+  const resultAdditionStr = Array(additionRepeatTimes)
+    .fill()
+    .map(() => String(addition))
+    .join(additionSeparator);
 
-  for (let i = 0; i < additionRepeatTimes; i += 1) {
-    resultAdditionStrParts.push(String(addition));
-  }
-
-  for (let i = 0; i < repeatTimes; i += 1) {
-    const resultStrPart = `${String(str)}${resultAdditionStrParts.join(additionSeparator)}`;
-    resultStrParts.push(resultStrPart);
-  }
-
-  return resultStrParts.join(separator);
+  return Array(repeatTimes)
+    .fill()
+    .map(() => `${String(str)}${resultAdditionStr}`)
+    .join(separator);
 };
   
