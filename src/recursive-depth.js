@@ -1,8 +1,5 @@
 const CustomError = require("../extensions/custom-error");
-
-// [[1], 2, [3, 4, [5, 6], 7], 8, [9]] 
-// module.exports = class DepthCalculator {
-class DepthCalculator {
+module.exports = class DepthCalculator {
   calculateDepth(arr) {
     let result = 1;
     
@@ -16,6 +13,3 @@ class DepthCalculator {
     return result;
   }
 };
-
-const calc = new DepthCalculator();
-console.log(calc.calculateDepth([[1], 2, [3, 4, [5, 6], 7], 8, [9]]));
